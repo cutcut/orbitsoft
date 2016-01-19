@@ -1,0 +1,41 @@
+<div>Total count of books: {{pagination.totalCount}}</div>
+<br/>
+<div>Pages:
+	<a ng-if="pagination.currentPage > 2" href='#/books?page=1&order={{order}}&order_type={{order_type}}&search_key={{search_key}}'>&lt;&lt;</a>
+	<span ng-if="pagination.currentPage > 2">...</span>
+	<a ng-if="pagination.currentPage > 1" href='#/books?page={{pagination.currentPage - 1}}&order={{order}}&order_type={{order_type}}&search_key={{search_key}}'>&lt;</a>
+	<b>{{pagination.currentPage}}</b>
+	<a ng-if="pagination.currentPage < pagination.pageCount" href='#/books?page={{pagination.currentPage + 1}}&order={{order}}&order_type={{order_type}}&search_key={{search_key}}'>&gt;</a>
+	<span ng-if="pagination.currentPage < pagination.pageCount - 1">...</span>
+	<a ng-if="pagination.currentPage < pagination.pageCount - 1" href='#/books?page={{pagination.pageCount}}&order={{order}}&order_type={{order_type}}&search_key={{search_key}}'>&gt;&gt;</a>
+</div>
+<br/>
+<div>
+Sort:
+<a href="#/books?page={{pagination.currentPage}}&order=name&order_type={{order_type_change}}&search_key={{search_key}}">Name <span ng-if="order == 'name'">
+<span ng-if="order_type == 'DESC'">&#9660;</span>
+<span ng-if="order_type != 'DESC'">&#9650;</span>
+</span></a>
+&nbsp;
+<a href="#/books?page={{pagination.currentPage}}&order=author&order_type={{order_type_change}}&search_key={{search_key}}">Author <span ng-if="order == 'author'">
+<span ng-if="order_type == 'DESC'">&#9660;</span>
+<span ng-if="order_type != 'DESC'">&#9650;</span>
+</span></a>
+</div>
+<br/>
+<input type="text" width="100%" placeholder="Search..." value="{{search_key}}" ng-model="search_key"/>
+<a href="#/books?page=1&order={{order}}&order_type={{order_type}}&search_key={{search_key}}"><input type="button" value="Go" /></a>
+
+<div class="books-list">
+    <div ng-repeat="book in books" class="book-list">
+		<div>
+			<img ng-if="!book.cover" ng-src="server/web/upload/cover_0" class="img-list" width="80">
+			<img ng-if="book.cover" ng-src="server/web/{{book.cover}}" class="img-list" width="80">
+		</div>
+		<div class="book-detail-list">
+			<div><a href="#/books/{{book.id}}">{{book.name}}</a></div>
+			<div>Author: {{book.author}}</div>
+			<div>Year of publication: {{book.pub_year}}</div>
+		</div>
+    </div>
+</div>

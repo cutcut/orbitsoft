@@ -1,0 +1,50 @@
+<form name="bookForm" novalidate ng-controller="BookEdit">
+	<div class="group">
+		<div class="label">Name: *</div>
+		<div class="field">
+			<input type="text" name="name" maxlength="150" size="60" ng-model="book.name" required/>
+			<div class="error" ng-show="bookForm.name.$touched && bookForm.name.$error.required">Name is required.</div>	
+		</div>
+	</div>
+	<div class="group">
+		<div class="label">Author: *</div>
+		<div class="field">
+			<input type="text" name="author" maxlength="100" size="60" ng-model="book.author" required/>
+			<div class="error" ng-show="bookForm.author.$touched && bookForm.author.$error.required">Author is required.</div>
+		</div>
+	</div>
+	<div class="group">
+		<div class="label">Description: *</div>
+		<div class="field">
+			<textarea name="description" maxlength="2000" cols="70" rows="10" ng-model="book.description" required></textarea>
+			<div class="error" ng-show="bookForm.description.$touched && bookForm.description.$error.required">Description is required.</div>
+		</div>
+	</div>
+	<div class="group">
+		<div class="label">Year of publication:</div>
+		<div class="field">
+			<input type="number" name="pub_year" min="1" max="{{max_year}}" ng-model="book.pub_year" value="{{book.pub_year}}">
+		</div>
+	</div>
+	<div class="group">
+		<div class="label">Cover:</div>
+		<!--<div class="field"><input type="file" file-model="cover" accept=".png, .gif, .jpeg, .jpg"/></div>-->
+		
+		<div class="field">
+			<input type="file" file-model="cover" onchange="$('#cover_ext').val($(this).val());if(this.files[0]) $('#cover_size').val(this.files[0].size); else $('#cover_size').val('');$('#cover_ext').change();$('#cover_size').change();"/>
+			<input style="display:none;" type="text" id="cover_ext" name="cover_ext" ng-model="cover_ext" validfileext="jpg,jpeg,gif,png"/>
+			<input style="display:none;" type="text" id="cover_size" name="cover_size" ng-model="cover_size" validfilesize="{{500*1024}}"/>
+			<div class="error" ng-show="bookForm.cover_ext.$error.validfileext">File in wrong format. Allowed formats are «.gif» «.jpgf» «.pngf».</div>
+			<div class="error" ng-show="bookForm.cover_size.$error.validfilesize">File is too large. Max size 500 kB.</div>
+		</div>
+		
+	</div>
+	<div class="group">
+		<br/>
+		<input ng-disabled="bookForm.$invalid" type="submit" ng-if="!book.id" ng-click="add(book, bookForm)" value="Add"/>
+
+		<input ng-disabled="bookForm.$invalid" type="submit" ng-if="book.id" ng-click="update(book, bookForm)" value="Save"/>
+		
+		<a href="#/books/"><input type="button" value="Cancel"/></a>
+	</div>
+</form>

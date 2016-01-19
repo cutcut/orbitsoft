@@ -1,0 +1,90 @@
+﻿
+input[type=number], input[type=text], select, textarea {
+	padding: 2px;
+	margin: 2px;
+	border-radius: 2px;
+}
+
+input[type=number], input[type=text], textarea {
+	border:1px inset #eee;
+	border-top-color:#9a9a9a;
+	border-left-color:#9a9a9a;
+	border-bottom-color:#eeeeee;
+	border-right-color:#eeeeee;
+	border-style:solid;
+}
+
+input[type=file] {
+	border:none;
+}
+
+#wrapper {
+	overflow:hidden;
+}
+#content {
+	overflow:hidden;
+}
+
+#menu {
+	float:left;
+	width:300px;
+	height:100%;
+}
+
+#menu div {
+	margin: 10px;
+}
+
+
+.img-list {
+    float:left;
+    width: 82px;
+    height: 82px;
+	margin:20px;
+}
+.book-detail-list {
+	margin:20px;
+}
+.book-list {
+	border: 1px solid #eee;
+	border-radius: 6px;
+	width:450px;
+	float: left;
+	position:relative;
+	margin:20px;
+}
+.book-detail {
+	border: 1px solid #eee;
+	border-radius: 6px;
+	padding:20px;
+	margin:20px;
+}
+.books-list {
+	overflow:hidden;
+}
+hr {
+	border:none;
+	border-top:1px solid #ccc;
+}
+
+.group {
+	width:800px;
+
+}
+.label {
+	width:250px;
+	float: left;
+}
+.field {
+	width:550px;
+	float:left;
+}
+.ng-invalid.ng-touched {
+	border-color: #a94442;
+}
+.ng-valid.ng-touched {
+	border-color: #3c763d;
+}
+.error {
+	color: #a94442;
+}

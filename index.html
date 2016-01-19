@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" ng-app="project">
+<head>
+    <title>Untitled Document</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <script type="text/javascript" src="resources/scripts/jquery-1.7.1.min.js"></script>
+    
+    <script type="text/javascript" src="resources/scripts/angular.js"></script>
+	<script type="text/javascript" src="resources/scripts/angular-route.js"></script>
+	<script type="text/javascript" src="resources/scripts/angular-resource.js"></script>
+	
+	<link type="text/css" href="resources/css/custom-default.css" rel="Stylesheet" />
+	
+	<script src="app/app.js"></script>
+	<script src="app/controllers.js"></script>
+</head>
+
+<body ng-controller="BooksList">
+	
+    <div id="wrapper">
+        <div id="menu">
+			<div><a href="#/books"><input type="button" value="List"/></a></div>
+			<div><a href="#/books/add"><input type="button" value="Add"/></a></div>
+        </div>
+        <div id="content">
+			<div id="loading" style="display:none;">Loading...</div>
+			<div ng-view></div>
+        </div>
+    </div>
+</body>
+</html>
