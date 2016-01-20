@@ -31,11 +31,11 @@
 		<!--<div class="field"><input type="file" file-model="cover" accept=".png, .gif, .jpeg, .jpg"/></div>-->
 		
 		<div class="field">
-			<input type="file" file-model="cover" onchange="$('#cover_ext').val($(this).val());if(this.files[0]) $('#cover_size').val(this.files[0].size); else $('#cover_size').val('');$('#cover_ext').change();$('#cover_size').change();"/>
+			<input type="file" file-model="cover" onchange="$('#cover_ext').val($(this).val());if(this.files[0]) $('#cover_size').val(this.files[0].size); else $('#cover_size').val('');$('#cover_ext').change();$('#cover_size').change();" accept=".png, .gif, .jpeg, .jpg"/>
 			<input style="display:none;" type="text" id="cover_ext" name="cover_ext" ng-model="cover_ext" validfileext="jpg,jpeg,gif,png"/>
 			<input style="display:none;" type="text" id="cover_size" name="cover_size" ng-model="cover_size" validfilesize="{{500*1024}}"/>
-			<div class="error" ng-show="bookForm.cover_ext.$error.validfileext">File in wrong format. Allowed formats are «.gif» «.jpgf» «.pngf».</div>
-			<div class="error" ng-show="bookForm.cover_size.$error.validfilesize">File is too large. Max size 500 kB.</div>
+			<div class="error" ng-show="bookForm.cover_ext.$error.validfileext">File in wrong format. Allowed formats are «.gif» «.jpg» «.png».</div>
+			<div class="error" ng-show="bookForm.cover_size.$error.validfilesize">File is too large. Max size: 500 Kb.</div>
 		</div>
 		
 	</div>
